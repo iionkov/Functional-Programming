@@ -20,6 +20,7 @@ help_rev n res = help_rev ( n `div` 10) ( 10 * res + ( n `mod` 10) )
 
 rev :: Int -> Int
 rev n = help_rev n 0
+
 help_prime :: Int-> Int->Bool
 help_prime n k  = if(( k + 1 ) == n)then True else if( (n `mod` k) == 0 ) then False else help_prime n ( k + 1)
 
