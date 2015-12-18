@@ -9,8 +9,7 @@ derive f eps = (\ x -> (f x+eps - f x)/eps)
 derive_n::(Float->Float)->Int->Float->(Float->Float)
 derive_n f n eps
     |n==0 = f
-    |n==1 = derive f eps
-    |otherwise = (\ x -> (derive_n f (n-1) eps x+eps - derive_n f (n-1) eps x)/eps)
+    |otherwise = derive_n (derive f eps) (n-1) eps
 isOdd::Int->Bool
 isOdd x = mod x 2 == 1
 mysum::[Int]->Int
